@@ -1,9 +1,10 @@
-\usepackage{graphicx}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{xcolor}
 \definecolor{darkblue}{rgb}{0, 0, 0.5}
 \usepackage{hyperref}
+\usepackage{setspace}
 \hypersetup{
     colorlinks=true,
     citecolor=darkblue,
@@ -12,11 +13,9 @@
 }
 % \urlstyle{same}
 \usepackage{natbib}
-\addtokomafont{disposition}{\rmfamily}
+%\addtokomafont{disposition}{\rmfamily}
 
 \renewcommand{\bibname}{References}
-
-\usepackage{setspace}
 
 
 % % page layout from NAIST style (.word)
@@ -36,10 +35,35 @@
 }
 \linespread{1.2}
 
+% footnote
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
 % Title Page
-\newcommand*{\thesistype}[1]{\gdef\@thesistype{#1}%
+\newcommand*{\titleJa}[1]{\gdef\@titleJa{#1}%
 }
-\newcommand*{\@thesistype}{{\string\thesistype}}
+\newcommand*{\@titleJa}{{\string\titleJa}}
+\newcommand*{\titleEn}[1]{\gdef\@titleEn{#1}%
+}
+\newcommand*{\@titleEn}{{\string\titleEn}}
+\newcommand*{\authorJa}[1]{\gdef\@authorJa{#1}%
+}
+\newcommand*{\@authorJa}{{\string\authorJa}}
+\newcommand*{\authorEn}[1]{\gdef\@authorEn{#1}%
+}
+\newcommand*{\@authorEn}{{\string\authorEn}}
+
+\newcommand*{\dateJa}[1]{\gdef\@dateJa{#1}%
+}
+\newcommand*{\@dateJa}{{\string\dateJa}}
+\newcommand*{\dateEn}[1]{\gdef\@dateEn{#1}%
+}
+\newcommand*{\@dateEn}{{\string\dateEn}}
+\newcommand*{\thesistypeJa}[1]{\gdef\@thesistypeJa{#1}%
+}
+\newcommand*{\@thesistypeJa}{{\string\thesistypeJa}}
+\newcommand*{\thesistypeEn}[1]{\gdef\@thesistypeEn{#1}%
+}
+\newcommand*{\@thesistypeEn}{{\string\thesistypeEn}}
 \newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}%
 }
 \newcommand*{\@supervisor}{{\string\supervisor}}
@@ -55,28 +79,31 @@
 \newcommand*{\degree}[1]{\gdef\@degree{#1}%
 }
 \newcommand*{\@degree}{{\string\degree}}
-\newcommand*{\keywords}[1]{\gdef\@keywords{#1}%
+\newcommand*{\keywordsJa}[1]{\gdef\@keywordsJa{#1}%
 }
-\newcommand*{\@keywords}{{\string\keywords}}
+\newcommand*{\@keywordsJa}{{\string\keywordsJa}}
+\newcommand*{\keywordsEn}[1]{\gdef\@keywordsEn{#1}%
+}
+\newcommand*{\@keywordsEn}{{\string\keywordsEn}}
 
 \renewcommand{\maketitle}{%
 	\begin{titlepage}
 		\singlespacing
 		\begin{center}
 			\null\vspace{35mm}
-			{\Large\textbf{\@thesistype}} \\ % Master's thesis or doctoral dissertation
+			{\Large\textbf{\@thesistypeJa}} \\ % Master's thesis or doctoral dissertation
 			\vspace{35mm}
-			{\Large\textbf{\@title}} \\
+			{\Large\textbf{\@titleJa}} \\
 			\vspace{43mm}
-			{\Large\textbf{\@author}} \\
-			Program of {\@program} \\
-			Graduate School of Science and Technology \\
-			Nara Institute of Science and Technology \\
+			{\@authorJa} \\
+            奈良先端科学技術大学院大学\\
+            先端科学技術研究科 \\
+			{\@program}プログラム \\
 			\vspace{13mm}
-			Supervisor: Professor {\@supervisor} \\
-			{\@laboratory} Lab. (Division of {\@division}) \\
+			主指導教員: {\@supervisor} 教授　\\
+			{\@laboratory} 研究室（{\@division}領域） \\
 			\vspace{13mm}
-			Submitted on {\@date}
+			{\@dateJa} 提出
 		\end{center}
 	\end{titlepage}
 }
@@ -87,50 +114,75 @@
     \singlespacing
         \begin{center}
         	\null\vspace{70mm}
-        	A {\@thesistype} \\
-        	submitted to Graduate School of Science and Technology, \\
-            Nara Institute of Science and Technology \\
-            in partial fulfillment of the requirements for the degree of \\
-            {\@degree} \\
+            本論文は奈良先端科学技術大学院大学先端科学技術研究科に\\
+            {\@degree}授与の要件として提出した{\@thesistypeJa}である。\\
             \vspace{7mm}
-            {\@author} \\
+            {\@authorJa} \\
         \end{center}
     \vspace{4mm}
     % Add your committee members and their affiliation in this table.
-    \begin{tabular}{ll}
-        \multicolumn{2}{l}{Thesis Committee:} \\
-        Supervisor & XXX XXX \\
-        & (Professor, Division of Information Science) \\
-        & XXX XXX \\
-        & (Professor, Division of Information Science) \\
-        & XXX XXX \\
-        & (Associate Professor, Division of Information Science) \\
-        & XXX XXX \\
-        & (Associate Professor, Graduate School of YYY, YYY University) \\
-    \end{tabular}
+    \begin{center}
+    \begin{tabular}{lll}
+            \multicolumn{3}{l}{審査委員:} \\
+            & XXXXX XXXXX 教授 &（主指導教員, 情報科学領域）\\
+            & XXXXX XXXXX 教授 &（副指導教員, 情報科学領域）\\
+            & XXXXX XXXXX 教授 &（副指導教員, 情報科学領域）\\
+            & XXXXX XXXXX 教授 &（副指導教員, 情報科学領域）\\
+        \end{tabular}
+    \end{center}
     % \end{newpage}
 }
 
-\newcommand{\makeabstractpage}{%
+\newcommand{\makeabstractpageJa}{%
+    \renewcommand{\thefootnote}{*}
     \newpage
     \setcounter{page}{1}
     \begin{center}
         \null\vspace{15mm}
-        {\Large\textbf{\@title}}\footnote{{\@thesistype}, Graduate School of Science and Technology, Nara Institute of Science and Technology, {\@date}.} \\
+        {\Large\textbf{\@titleJa}}\footnote{奈良先端科学技術大学院大学 先端科学技術研究科{\@thesistypeJa}，{\@dateJa}.} \\
         \vspace{13mm}
-        {\large{\@author}} \\
+        {\large{\@authorJa}} \\
+        \vspace{18mm}
+        \textbf{内容梗概} \\
+        \vspace{7mm}
+    \end{center}
+    \renewcommand{\thefootnote}{\arabic{footnote}}
+    \setcounter{footnote}{0}
+}
+
+\newcommand{\makeabstractpageEn}{%
+    \renewcommand{\thefootnote}{*}
+    \newpage
+    \setcounter{page}{2}
+    \begin{center}
+        \null\vspace{15mm}
+        {\Large\textbf{\@titleEn}}\footnote{{\@thesistypeEn}, Graduate School of Science and Technology, Nara Institute of Science and Technology, {\@dateEn}.} \\
+        \vspace{13mm}
+        {\large{\@authorEn}} \\
         \vspace{18mm}
         \textbf{Abstract} \\
         \vspace{7mm}
     \end{center}
+    \renewcommand{\thefootnote}{\arabic{footnote}}
+    \setcounter{footnote}{0}
 }
 
-\newcommand{\makekeywords}[1]{%
+\newcommand{\makekeywordsJa}[1]{%
+    \par
+    \vspace{8mm}
+    \noindent
+    \textbf{キーワード} \\
+    \vspace{10.3pt}
+    {\@keywordsJa} 
+    \clearpage
+}
+
+\newcommand{\makekeywordsEn}[1]{%
     \par
     \vspace{8mm}
     \noindent
     \textbf{Keywords:} \\
     \vspace{10.3pt}
-    {\@keywords} 
+    {\@keywordsEn} 
     \clearpage
 }

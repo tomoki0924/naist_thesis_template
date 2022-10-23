@@ -1,4 +1,4 @@
-% pdfLaTeX
+% upLaTeX
 % This template was made based on the template Word file distributed by NAIST, 
 % and made to be visually as similar as possible to the original template.
 % For this reason the space lengths and layouts are set manually by directly indicating them.
@@ -11,23 +11,35 @@
 
 % \documentclass[a4paper, total={14.5cm, 20.5cm}, 12pt]{article}
 \documentclass[
-paper=a4paper,
-fontsize=12pt,
-chapterprefix=true,
-DIV=calc,
-BCOR=0mm,
-pagesize=auto,
-draft=false]{scrreprt}
-\renewcommand{\autodot}{}% Remove all end-of-counter dots
+uplatex,
+dvipdfmx,
+report,
+a4paper,
+fontsize=10.5pt,
+%chapterprefix=true,
+%DIV=calc,
+%BCOR=0mm,
+%pagesize=auto,
+%draft
+]{jlreq}
+%\renewcommand{\autodot}{}% Remove all end-of-counter dots
 
 \usepackage{naist}
 
 %%%%% TITLE PAGES SETTING %%%%%
-\title{Theoretical Studies on Low-Speed Calculation Algorithms of $\pi$ Utilizing the Sun and the Moon} % Write your title
-\author{Hanako Sentan} % Write your full name
-\date{\today} % Change this to the appropriate submission date
-\thesistype{Master's Thesis} % or Doctoral Dissertation
-\program{Information Science and Engineering}
+\titleJa{太陽と月を利用した低速$\pi$計算アルゴリズムの理論的研究}
+\titleEn{Theoretical Studies on Low-Speed Calculation Algorithms of $\pi$ Utilizing the Sun and the Moon} % Write your title
+\authorJa{先端 花子} % Write your full name
+\authorEn{Hanako Sentan}
+\dateJa{令和元年 1月 1日}
+% Change this to the appropriate submission date
+% 令和元年 1月 1日
+\dateEn{January 1, 2019}
+% Change this to the appropriate submission date
+% January 1, 2019
+\thesistypeJa{修士論文} % or Doctoral Dissertation
+\thesistypeEn{Master's Thesis}
+\program{情報理工学}
 % or also:
 % Biological Science,
 % Materials Science and Engineering, 
@@ -38,9 +50,10 @@ draft=false]{scrreprt}
 \supervisor{XXX} % Write your supervisor's name here.
 % Change naist.sty if you want to change the title (Prof. by default)
 \laboratory{xxx} % Write your lab's name here
-\division{Information Science} % or Biological Science, Materials Science
-\degree{Master of Engineering} % or Science, Biological Science
-\keywords{$\pi$, astronomy, mathematics, computer, algorithm} % Write your thesis's keywords
+\division{情報科学} % or Biological Science, Materials Science
+\degree{修士（工学）} % or Science, Biological Science
+\keywordsJa{$\pi$，天文学，数学，コンピュータ，アルゴリズム}
+\keywordsEn{$\pi$, astronomy, mathematics, computer, algorithm} % Write your thesis's keywords
 
 % Don't forget to add your thesis/dissetation committee members' name and affiliation
 % in naist.sty that is to appear in the second page.
@@ -52,9 +65,13 @@ draft=false]{scrreprt}
 \maketitle
 \makefrontpage
 \pagenumbering{roman}
-\makeabstractpage
-\input{abstract}
-\makekeywords
+\makeabstractpageJa
+\input{abstract_ja}
+\makekeywordsJa
+\clearpage
+\makeabstractpageEn
+\input{abstract_en}
+\makekeywordsEn
 \clearpage
 
 \tableofcontents
@@ -85,7 +102,7 @@ draft=false]{scrreprt}
 \clearpage
 
 \appendix
-\addchap{Appendices}
+\chapter{Appendices}
 
 \renewcommand*{\thesubsection}{\Alph{subsection}}
 \input{ap1}

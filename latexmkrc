@@ -1,3 +1,9 @@
 #!/usr/bin/env perl
 @default_files = ('main.tex');
-$pdf_mode = 1;
+
+$latex = 'uplatex -synctex=1 %O %S';
+$bibtex = 'upbibtex %O %B';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$makeindex = 'upmendex %O -o %D %S';
+
+$pdf_mode = 3;
